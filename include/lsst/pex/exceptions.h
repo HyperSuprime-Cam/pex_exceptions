@@ -30,4 +30,5 @@
 #define LSST_PEX_EXCEPTIONS_H
 #include "lsst/pex/exceptions/Exception.h"
 #include "lsst/pex/exceptions/Runtime.h"
+#include "lsst/pex/exceptions/asserts.h"
 #endif

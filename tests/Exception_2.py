@@ -84,5 +84,14 @@ class ExceptionTestCase(unittest.TestCase):
             self.assertEqual(t[0]._func, "void failer::Failer::fail()")
             self.assertEqual(t[0]._msg, "message")
 
+    def testAssertEqual(self):
+        """Test that the LSST_ASSERT_EQUAL macro works as expected"""
+        try:
+            self.x.fail3(4, 5)
+        except lsst.pex.exceptions.LsstCppException as e:
+            self.assert_("a=4" in str(e))
+            self.assert_("b=5" in str(e))
+            self.assert_(isinstance(e.args[0], lsst.pex.exceptions.RuntimeErrorException))
+
 if __name__ == '__main__':
     unittest.main()
